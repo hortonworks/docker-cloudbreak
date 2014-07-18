@@ -26,18 +26,14 @@ If you'd like to try directly from the Dockerfile you can build the image as:
 ```
 docker build  -t sequenceiq/cloudbreak .
 ```
-### Pull the image
 
-The image is also released as an official Docker image from Docker's automated build repository - you can always pull or refer the image when launching containers.
+### Start the application stack
 
-```
-docker pull sequenceiq/cloudbreak:0.1
-```
-
-### Start a container
-
-In order to use the Docker image you have just build or pulled use:
+To start the application run the following script:
 
 ```
-docker run -i -t sequenceiq/cloudbreak:0.1
+sh ./start_cb_stack.sh
 ```
+
+As a result you'll be provided with the cloudbreak shell terminal; you can start using the application.
+(In the background you'll have three containers - the database, the cloudbreak app and the CLI app)
