@@ -4,7 +4,7 @@ echo "Setting up cloudbreak infrastructure ..."
 
 # check the environment
 source env_props.sh
-./check_env.sh
+source check_env.sh
 
 if [ $? -ne 0 ];
   then
