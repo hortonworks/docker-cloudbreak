@@ -64,14 +64,17 @@ docker inspect postgresql &>/dev/null && docker rm -f postgresql
 # Start a postgres database docker container
 docker run -d --name="postgresql" \
   -p 5432:5432 \
-  -e "USER=$CB_DB_ENV_USER" \
-  -e "DB=$CB_DB_ENV_DB" \
-  -e "PASS=$CB_DB_ENV_PASS"  \
-  paintedfox/postgresql
+  -e "USER=postgres"\
+  -e "DB=postgres" \
+  -e "PASS="  \
+  postgres
 
 timeout=10
 echo "Wait $timeout seconds for the POSTGRES DB to start up"
 sleep $timeout
+
+docker run -it --link postgresql:postgres --rm postgres sh -c 'exec createdb -h "$POSTGRES_PORT_5432_TCP_ADDR" -p "$POSTGRES_PORT_5432_TCP_PORT" -U postgres cloudbreak'
+docker run -it --link postgresql:postgres --rm postgres sh -c 'exec dropdb -h "$POSTGRES_PORT_5432_TCP_ADDR" -p "$POSTGRES_PORT_5432_TCP_PORT" -U postgres postgres'
 
 # Removes previous containers
 docker inspect cloudbreak &>/dev/null &&  docker rm -f cloudbreak
