@@ -15,7 +15,7 @@ ADD https://s3-eu-west-1.amazonaws.com/maven.sequenceiq.com/releases/com/sequenc
 
 # extract schema files
 RUN unzip cloudbreak.jar schema/* -d /
-
+RUN unzip cloudbreak.jar -d /cloudbreak
 WORKDIR /
 
 ENTRYPOINT ["/start_cloudbreak_app.sh"]
