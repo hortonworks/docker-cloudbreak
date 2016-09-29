@@ -24,5 +24,4 @@ if [ "$SECURE_RANDOM" == "false" ]; then
   CB_JAVA_OPTS="$CB_JAVA_OPTS -Djava.security.egd=file:/dev/./urandom"
 fi
 
-cd /cloudbreak
-java $CB_JAVA_OPTS org.springframework.boot.loader.JarLauncher
+java $CB_JAVA_OPTS -jar /cloudbreak.jar
