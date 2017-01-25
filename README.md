@@ -1,6 +1,8 @@
 Cloudbreak on Docker
 ==========
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b64768b545e4619b447f994a4af4496)](https://www.codacy.com/app/raghavgautam/docker-cloudbreak?utm_source=github.com&utm_medium=referral&utm_content=hortonworks/docker-cloudbreak&utm_campaign=badger)
+
 This repository contains a Docker file to build a Docker image containing Cloudbreak binary and DB schema scripts.
 The Cloudbreak source code is available on GitHuv [GitHub](https://github.com/sequenceiq/cloudbreak).
 
