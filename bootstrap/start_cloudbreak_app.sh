@@ -24,4 +24,4 @@ if [ "$SECURE_RANDOM" == "false" ]; then
   CB_JAVA_OPTS="$CB_JAVA_OPTS -Djava.security.egd=file:/dev/./urandom"
 fi
 
-java $CB_JAVA_OPTS -jar /cloudbreak.jar
+eval "java $CB_JAVA_OPTS -jar /cloudbreak.jar"
