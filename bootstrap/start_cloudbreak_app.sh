@@ -1,6 +1,9 @@
 #!/bin/bash
 
 : ${SECURE_RANDOM:=true}
+: ${EXPOSE_JMX_METRICS:=false}
+: ${EXPOSE_JMX_METRICS_PORT:=20105}
+: ${EXPOSE_JMX_METRICS_CONFIG:=config.yaml}
 : ${TRUSTED_CERT_DIR:=/certs/trusted}
 
 echo "Importing certificates to the default Java certificate  trust store."
@@ -22,6 +25,9 @@ echo "Starting the Cloudbreak application..."
 set -x
 if [ "$SECURE_RANDOM" == "false" ]; then
   CB_JAVA_OPTS="$CB_JAVA_OPTS -Djava.security.egd=file:/dev/./urandom"
+fi
+if [ "$EXPOSE_JMX_METRICS" == "true" ]; then
+  CB_JAVA_OPTS="$CB_JAVA_OPTS -javaagent:/jmx_prometheus_javaagent=127.0.0.1:$EXPOSE_JMX_METRICS_PORT:$EXPOSE_JMX_METRICS_CONFIG"
 fi
 
 eval "java $CB_JAVA_OPTS -jar /cloudbreak.jar"
