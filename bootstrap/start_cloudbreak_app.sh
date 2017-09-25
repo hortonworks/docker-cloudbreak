@@ -27,7 +27,7 @@ if [ "$SECURE_RANDOM" == "false" ]; then
   CB_JAVA_OPTS="$CB_JAVA_OPTS -Djava.security.egd=file:/dev/./urandom"
 fi
 if [ "$EXPOSE_JMX_METRICS" == "true" ]; then
-  CB_JAVA_OPTS="$CB_JAVA_OPTS -javaagent:/jmx_prometheus_javaagent=127.0.0.1:$EXPOSE_JMX_METRICS_PORT:$EXPOSE_JMX_METRICS_CONFIG"
+  CB_JAVA_OPTS="$CB_JAVA_OPTS -javaagent:/jmx_prometheus_javaagent.jar=127.0.0.1:$EXPOSE_JMX_METRICS_PORT:$EXPOSE_JMX_METRICS_CONFIG"
 fi
 
 eval "java $CB_JAVA_OPTS -jar /cloudbreak.jar"
