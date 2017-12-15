@@ -1,7 +1,7 @@
 FROM java:openjdk-8
 MAINTAINER info@hortonworks.com
 
-ENV VERSION 2.3.0-dev.13
+ENV VERSION 2.2.0-rc.8
 
 WORKDIR /
 
