@@ -31,4 +31,4 @@ if [ "$EXPOSE_JMX_METRICS" == "true" ]; then
   CB_JAVA_OPTS="$CB_JAVA_OPTS -javaagent:/jmx_prometheus_javaagent.jar=$EXPOSE_JMX_BIND_ADDRESS:$EXPOSE_JMX_METRICS_PORT:$EXPOSE_JMX_METRICS_CONFIG"
 fi
 
-eval "java $CB_JAVA_OPTS -jar /cloudbreak.jar"
+eval "(java $CB_JAVA_OPTS -jar /cloudbreak.jar) & JAVAPID=\$!; trap \"kill \$JAVAPID; wait \$JAVAPID\" SIGINT SIGTERM; wait \$JAVAPID"
