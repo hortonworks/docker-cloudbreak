@@ -9,10 +9,10 @@ WORKDIR /
 RUN apt-get update --no-install-recommends && apt-get install -y zip=3.0-8 && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # install the cloudbreak app
-ADD https://s3-eu-west-1.amazonaws.com/maven.sequenceiq.com/releases/com/sequenceiq/cloudbreak/$VERSION/cloudbreak-$VERSION.jar /cloudbreak.jar
+ADD https://cloudbreak-maven.s3.amazonaws.com/releases/com/sequenceiq/cloudbreak/$VERSION/cloudbreak-$VERSION.jar /cloudbreak.jar
 
 # add jmx exporter
-ADD https://s3.eu-central-1.amazonaws.com/hortonworks-prometheus/jmx_prometheus_javaagent-0.10.jar /jmx_prometheus_javaagent.jar
+ADD jmx_prometheus_javaagent-0.10.jar /jmx_prometheus_javaagent.jar
 
 # extract schema files
 RUN ( unzip cloudbreak.jar schema/* -d / ) || \
