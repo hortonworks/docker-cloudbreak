@@ -1,4 +1,4 @@
-FROM java:openjdk-8
+FROM openjdk:8-jdk-slim
 MAINTAINER info@hortonworks.com
 
 ENV VERSION 2.5.0-dev.1
@@ -6,7 +6,7 @@ ENV VERSION 2.5.0-dev.1
 WORKDIR /
 
 # Install zip
-RUN apt-get update --no-install-recommends && apt-get install -y zip=3.0-8 && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update --no-install-recommends && apt-get install -y zip procps && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # install the cloudbreak app
 ADD https://cloudbreak-maven.s3.amazonaws.com/releases/com/sequenceiq/cloudbreak/$VERSION/cloudbreak-$VERSION.jar /cloudbreak.jar
