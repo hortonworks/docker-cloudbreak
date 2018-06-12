@@ -1,7 +1,7 @@
 FROM openjdk:8u162-jdk-slim
 MAINTAINER info@hortonworks.com
 
-ENV VERSION 2.7.0-rc.34
+ENV VERSION 2.8.0-dev.23
 
 WORKDIR /
 
