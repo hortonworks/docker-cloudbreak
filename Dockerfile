@@ -1,7 +1,7 @@
 FROM openjdk:10.0.1-jdk-slim
 MAINTAINER info@hortonworks.com
 
-ENV VERSION 2.8.0-dev.95
+ENV VERSION 2.8.0-dev.96
 
 WORKDIR /
 
