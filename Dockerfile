@@ -1,7 +1,7 @@
 FROM openjdk:10-jdk-slim
 MAINTAINER info@hortonworks.com
 
-ENV VERSION 2.8.0-rc.41
+ENV VERSION 2.8.0-rc.42
 
 WORKDIR /
 
